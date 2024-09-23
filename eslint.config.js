@@ -3,13 +3,12 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
-import stylelint from 'eslint-config-stylelint'
-import prettier from 'eslint-config-prettier'
+import prettier from 'eslint-plugin-prettier/recommended'
 
 export default tseslint.config(
   { ignores: ['dist'] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended, stylelint, prettier],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended, prettier, /*stylelint*/],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
