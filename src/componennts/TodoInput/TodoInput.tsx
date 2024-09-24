@@ -1,15 +1,16 @@
 import { Button, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+
 interface TodoInputProps {
   value: string;
-  onChange: (value: string) => void;
   addTodo: () => void;
-  todoText: string;
+  todoTextBtn: string;
+  onChange: (value: string) => void;
 }
 export const TodoInput = ({
-  onChange,
-  value,
   addTodo,
-  todoText,
+  todoTextBtn,
+  value,
+  onChange,
 }: TodoInputProps) => {
   return (
     <InputGroup bg="white" borderRadius={"6px"} my={"12px"}>
@@ -22,7 +23,7 @@ export const TodoInput = ({
       />
       <InputRightElement>
         <Button colorScheme="blue" size="sm" onClick={addTodo}>
-          {todoText}
+          {todoTextBtn}
         </Button>
       </InputRightElement>
     </InputGroup>
