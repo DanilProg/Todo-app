@@ -1,16 +1,20 @@
 import { Button, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+
 interface TodoInputProps {
-  value: string;
-  onChange: (value: string) => void;
-  addTodo: () => void;
-  todoText: string;
+  valueEdit: string;
+  addTodo: (value: string) => void;
+  todoTextBtn: string;
 }
 export const TodoInput = ({
-  onChange,
-  value,
   addTodo,
-  todoText,
+  todoTextBtn,
+  valueEdit,
 }: TodoInputProps) => {
+  const [value, setValue] = useState<string>(valueEdit);
+  useEffect(() => {
+    setValue(valueEdit);
+  }, [valueEdit]);
   return (
     <InputGroup bg="white" borderRadius={"6px"} my={"12px"}>
       <Input
@@ -18,11 +22,18 @@ export const TodoInput = ({
         placeholder="Создать задачу"
         _placeholder={{ color: "inherit" }}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
       />
       <InputRightElement>
-        <Button colorScheme="blue" size="sm" onClick={addTodo}>
-          {todoText}
+        <Button
+          colorScheme="blue"
+          size="sm"
+          onClick={() => {
+            addTodo(value);
+            setValue("");
+          }}
+        >
+          {todoTextBtn}
         </Button>
       </InputRightElement>
     </InputGroup>
