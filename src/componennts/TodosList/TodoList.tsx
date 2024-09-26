@@ -8,6 +8,8 @@ interface TodoListProps {
 }
 
 export const TodoList = ({ todos, deleteTodo, onEdit }: TodoListProps) => {
+  console.log("render ToDO LIST");
+  console.log(todos);
   return (
     <Box bg="white" p={"18px"} borderRadius={"6px"}>
       {todos.map((todo) => {
