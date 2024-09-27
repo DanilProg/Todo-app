@@ -1,13 +1,14 @@
 import { Todo } from "../Todo/Todo.tsx";
 import { Box } from "@chakra-ui/react";
 import { ITodo } from "../../App.tsx";
+import { memo } from "react";
 interface TodoListProps {
   todos: ITodo[];
   deleteTodo: (id: string) => void;
   onEdit: (id: string, value: string) => void;
 }
 
-export const TodoList = ({ todos, deleteTodo, onEdit }: TodoListProps) => {
+export const TodoList = memo(({ todos, deleteTodo, onEdit }: TodoListProps) => {
   console.log("render ToDO LIST");
   console.log(todos);
   return (
@@ -31,4 +32,4 @@ export const TodoList = ({ todos, deleteTodo, onEdit }: TodoListProps) => {
       })}
     </Box>
   );
-};
+});
