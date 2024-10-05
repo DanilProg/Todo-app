@@ -7,6 +7,12 @@ export interface ITodo {
   value: string;
   id: string;
 }
+export interface Users {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+}
 export const App = () => {
   const {
     createTodo,
@@ -17,7 +23,6 @@ export const App = () => {
     setTodoValue,
     todoValue,
   } = useAppTodo([]);
-
   return (
     <div style={{ background: "#2654fc" }}>
       <Container maxW={"560px"}>
