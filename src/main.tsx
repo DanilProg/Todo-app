@@ -1,9 +1,11 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { App } from "./App";
-import { ChakraProvider } from "@chakra-ui/react";
+import { FetchProvider } from "./hook/useFetchContext/FetchContext.tsx";
 createRoot(document.getElementById("root")!).render(
-  <ChakraProvider>
-    <App />
-  </ChakraProvider>,
+  <FetchProvider>
+    <FetchProvider>
+      <App />
+    </FetchProvider>
+  </FetchProvider>,
 );
